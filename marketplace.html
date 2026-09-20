@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بازار مقایسه — دمو</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF6;
+    --surface:#FFFFFF;
+    --text:#1C2321;
+    --text-soft:#66716E;
+    --border:#E7E4DA;
+    --teal:#0F766E;
+    --teal-dark:#0B5C55;
+    --clay:#B4530A;
+    --danger:#B42318;
+    --mustard:#E3A63E;
+    --mustard-dark:#9A6B12;
+    --cream:#FBF3E4;
+    --skyteal:#2F8F97;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{background:var(--cream);}
+  body{
+    font-family:'Vazirmatn', sans-serif;
+    color:var(--text);
+    direction:rtl;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(circle at 12% 18%, #fff 0 3px, transparent 4px),
+      radial-gradient(circle at 68% 8%,  #fff 0 2px, transparent 3px),
+      radial-gradient(circle at 38% 30%, #fff 0 2px, transparent 3px),
+      radial-gradient(circle at 84% 42%, #fff 0 3px, transparent 4px),
+      radial-gradient(circle at 22% 62%, #fff 0 2px, transparent 3px),
+      radial-gradient(circle at 58% 78%, #fff 0 3px, transparent 4px),
+      radial-gradient(circle at 90% 85%, #fff 0 2px, transparent 3px),
+      radial-gradient(circle at 6% 90%,  #fff 0 2px, transparent 3px),
+      radial-gradient(circle at 48% 5%,  #fff 0 2px, transparent 3px),
+      radial-gradient(circle at 9% 11%, rgba(255,255,255,.95) 0 13px, rgba(255,255,255,.5) 13px 20px, transparent 24px),
+      radial-gradient(circle at 15% 9%, rgba(255,255,255,.9) 0 10px, rgba(255,255,255,.45) 10px 16px, transparent 20px),
+      radial-gradient(circle at 18% 13%, rgba(255,255,255,.85) 0 8px, rgba(255,255,255,.4) 8px 13px, transparent 17px),
+      radial-gradient(circle at 89% 46%, rgba(255,255,255,.95) 0 12px, rgba(255,255,255,.5) 12px 19px, transparent 23px),
+      radial-gradient(circle at 94% 43%, rgba(255,255,255,.85) 0 8px, rgba(255,255,255,.4) 8px 13px, transparent 17px),
+      radial-gradient(circle at 84% 49%, rgba(255,255,255,.8) 0 7px, rgba(255,255,255,.4) 7px 12px, transparent 16px),
+      radial-gradient(circle at 9% 81%, rgba(255,255,255,.95) 0 12px, rgba(255,255,255,.5) 12px 19px, transparent 23px),
+      radial-gradient(circle at 15% 78%, rgba(255,255,255,.85) 0 9px, rgba(255,255,255,.4) 9px 14px, transparent 18px),
+      radial-gradient(circle at 5% 84%, rgba(255,255,255,.8) 0 7px, rgba(255,255,255,.4) 7px 12px, transparent 16px),
+      radial-gradient(circle at 62% 6%, rgba(255,255,255,.9) 0 10px, rgba(255,255,255,.45) 10px 16px, transparent 20px),
+      radial-gradient(circle at 68% 9%, rgba(255,255,255,.8) 0 7px, rgba(255,255,255,.4) 7px 12px, transparent 16px),
+      radial-gradient(circle at 40% 38%, rgba(255,255,255,.9) 0 11px, rgba(255,255,255,.45) 11px 17px, transparent 21px),
+      radial-gradient(circle at 46% 41%, rgba(255,255,255,.8) 0 7px, rgba(255,255,255,.4) 7px 12px, transparent 16px),
+      radial-gradient(circle at 35% 42%, rgba(255,255,255,.75) 0 6px, rgba(255,255,255,.35) 6px 10px, transparent 14px),
+      radial-gradient(circle at 78% 62%, rgba(255,255,255,.9) 0 11px, rgba(255,255,255,.45) 11px 17px, transparent 21px),
+      radial-gradient(circle at 84% 65%, rgba(255,255,255,.8) 0 7px, rgba(255,255,255,.4) 7px 12px, transparent 16px),
+      radial-gradient(circle at 22% 60%, rgba(255,255,255,.85) 0 9px, rgba(255,255,255,.4) 9px 14px, transparent 18px),
+      radial-gradient(circle at 28% 63%, rgba(255,255,255,.75) 0 6px, rgba(255,255,255,.35) 6px 10px, transparent 14px),
+      radial-gradient(circle at 55% 88%, rgba(255,255,255,.9) 0 10px, rgba(255,255,255,.45) 10px 16px, transparent 20px),
+      radial-gradient(circle at 61% 91%, rgba(255,255,255,.8) 0 7px, rgba(255,255,255,.4) 7px 12px, transparent 16px),
+      radial-gradient(ellipse 220px 90px at 18% 14%, rgba(255,255,255,.6), transparent 70%),
+      radial-gradient(ellipse 260px 100px at 82% 28%, rgba(255,255,255,.55), transparent 70%),
+      radial-gradient(ellipse 240px 90px at 28% 74%, rgba(255,255,255,.55), transparent 70%),
+      radial-gradient(ellipse 200px 80px at 75% 92%, rgba(255,255,255,.5), transparent 70%),
+      linear-gradient(160deg, var(--skyteal) 0%, var(--cream) 45%, var(--mustard) 100%);
+    background-attachment:fixed;
+  }
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  input{font-family:inherit;}
+
+  header{
+    position:sticky;top:0;z-index:10;
+    background:rgba(251,243,228,.85);
+    backdrop-filter:blur(6px);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 18px 10px;
+    max-width:520px;margin:0 auto;
+  }
+  .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;}
+  .logo-mark{
+    width:26px;height:26px;border-radius:8px;
+    background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+    display:inline-block;
+  }
+  #roleBadge{
+    font-size:13px;color:var(--teal-dark);
+    background:#EAF4F2;border:1px solid #CFE6E2;
+    padding:6px 12px;border-radius:999px;font-weight:600;
+  }
+  #roleBadge.hidden{display:none;}
+  .header-actions{display:flex;align-items:center;gap:8px;}
+  .gallery-toggle{
+    font-size:12px;font-weight:600;color:var(--mustard-dark);
+    background:#FCF0D8;border:1px solid #EFD9A0;
+    padding:6px 12px;border-radius:999px;white-space:nowrap;
+  }
+  .gallery-toggle.active{background:var(--teal);border-color:var(--teal);color:#fff;}
+
+  main{max-width:520px;margin:0 auto;padding:2px 18px 90px;min-height:70vh;}
+
+  /* ---------- گیت انتخاب نقش ---------- */
+  .gate{padding:40px 4px 20px;text-align:center;}
+  .gate h1{font-size:26px;margin:0 0 6px;}
+  .gate p{color:var(--text-soft);margin:0 0 28px;font-size:15px;}
+  .gate-cards{display:flex;flex-direction:column;gap:14px;}
+  .gate-card{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:var(--radius);padding:26px 18px;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .gate-card:active{transform:scale(0.98);}
+  .gate-card:hover{border-color:var(--teal);}
+  .gate-emoji{font-size:32px;}
+  .gate-title{font-weight:700;font-size:16px;}
+  .gate-sub{color:var(--text-soft);font-size:13px;}
+
+  .seller-pick-list{display:flex;flex-direction:column;gap:10px;}
+  .seller-pick{
+    display:flex;justify-content:space-between;align-items:center;
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:var(--radius);padding:16px 18px;font-size:15px;font-weight:600;
+  }
+  .seller-pick:hover{border-color:var(--teal);}
+  .seller-pick .rating{color:var(--clay);font-weight:600;font-size:13px;}
+
+  /* ---------- جست‌وجو ---------- */
+  .search-bar{margin:10px 0 12px;}
+  .search-bar input{
+    width:100%;padding:13px 16px;border-radius:12px;
+    border:1px solid var(--border);background:var(--surface);
+    font-size:15px;outline:none;
+  }
+  .search-bar input:focus{border-color:var(--teal);}
+  .chip-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;margin-bottom:6px;}
+  .chip{
+    flex:0 0 auto;padding:7px 14px;border-radius:999px;
+    border:1px solid var(--border);background:var(--surface);
+    font-size:13px;color:var(--text-soft);white-space:nowrap;
+  }
+  .chip.active{background:var(--teal);border-color:var(--teal);color:#fff;}
+
+  .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .card{
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;
+  }
+  .card-swatch{height:64px;}
+  .card-photo{height:64px;width:100%;object-fit:cover;display:block;}
+  .card-body{padding:12px;display:flex;flex-direction:column;gap:4px;}
+  .card-cat{font-size:11px;color:var(--text-soft);}
+  .card-name{font-size:14px;font-weight:600;line-height:1.4;min-height:38px;}
+  .card-seller{font-size:12px;color:var(--text-soft);}
+  .card-price{font-size:14px;font-weight:700;color:var(--clay);margin-top:2px;}
+  .card-actions{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+
+  .btn-solid{
+    background:var(--teal);color:#fff;padding:9px 12px;border-radius:10px;
+    font-size:13px;font-weight:600;text-align:center;
+  }
+  .btn-solid.full{width:100%;}
+  .btn-solid.small{padding:6px 10px;font-size:12px;}
+  .btn-ghost{
+    background:#F1F0EA;color:var(--text);padding:9px 12px;border-radius:10px;
+    font-size:13px;font-weight:600;text-align:center;
+  }
+  .btn-ghost.active{background:#EAF4F2;color:var(--teal-dark);}
+  .btn-ghost.small{padding:6px 10px;font-size:12px;}
+  .btn-ghost.danger{color:var(--danger);}
+  .hidden-file{display:none;}
+  .photo-btn{display:block;}
+
+  .empty{
+    grid-column:1 / -1;text-align:center;padding:50px 10px;color:var(--text-soft);
+  }
+  .empty p{margin:4px 0;}
+  .empty-sub{font-size:13px;}
+
+  /* ---------- مقایسه ---------- */
+  .compare-wrap{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;}
+  .compare-col{
+    flex:0 0 76%;background:var(--surface);border:1px solid var(--border);
+    border-radius:var(--radius);overflow:hidden;padding-bottom:12px;
+  }
+  .compare-col .card-swatch{height:70px;}
+  .compare-col .card-photo{height:70px;}
+  .compare-name{font-weight:700;font-size:15px;padding:10px 12px 4px;min-height:44px;}
+  .compare-row{
+    display:flex;justify-content:space-between;padding:7px 12px;
+    font-size:13px;border-top:1px solid var(--border);color:var(--text-soft);
+  }
+  .compare-row b{color:var(--text);font-weight:600;}
+  .compare-col .btn-ghost.small{margin:0 12px 8px;}
+  .compare-col .order-btn{margin:10px 12px 0;width:calc(100% - 24px);}
+
+  /* ---------- سفارش‌ها (خریدار و فروشنده) ---------- */
+  .order-list{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
+  .order-item{
+    display:flex;align-items:center;gap:12px;
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:var(--radius);padding:12px;
+  }
+  .order-swatch{width:48px;height:48px;border-radius:10px;flex:0 0 auto;}
+  .order-info{flex:1;min-width:0;}
+  .order-name{font-weight:600;font-size:14px;}
+  .order-sub{font-size:12px;color:var(--text-soft);margin-top:2px;}
+  .order-status{font-size:12px;font-weight:600;color:var(--teal-dark);margin-top:4px;}
+  .status-track{display:flex;gap:4px;margin-top:6px;}
+  .status-dot{width:16px;height:5px;border-radius:3px;background:var(--border);}
+  .status-dot.done{background:var(--teal);}
+  .done-label{font-size:12px;color:var(--text-soft);flex:0 0 auto;}
+
+  /* ---------- فروشنده ---------- */
+  .seller-toolbar{margin:10px 0 14px;}
+  .form-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:14px;display:flex;flex-direction:column;gap:8px;margin-bottom:14px;
+  }
+  .form-card input{
+    padding:11px 14px;border-radius:10px;border:1px solid var(--border);font-size:14px;outline:none;
+  }
+  .form-card input:focus{border-color:var(--teal);}
+  .form-actions{display:flex;gap:8px;margin-top:2px;}
+  .form-actions button{flex:1;}
+  .inline-input{
+    width:100%;padding:7px 10px;border-radius:8px;border:1px solid var(--border);font-size:13px;margin-bottom:6px;
+  }
+
+  /* ---------- راهنمای ورود فروشنده ---------- */
+  .tip-box{
+    background:#FCF6E9;border:1px solid #EFDFB0;border-radius:var(--radius);
+    padding:14px 16px;margin-bottom:18px;text-align:right;
+  }
+  .tip-title{font-weight:700;font-size:14px;margin-bottom:8px;color:var(--mustard-dark);}
+  .tip-box ul{margin:0;padding-right:18px;font-size:13px;color:var(--text-soft);line-height:1.9;}
+  .seller-divider{
+    display:flex;align-items:center;gap:10px;margin:18px 0 12px;
+    color:var(--text-soft);font-size:12px;
+  }
+  .seller-divider::before,.seller-divider::after{content:"";flex:1;height:1px;background:var(--border);}
+  .new-seller-btn{
+    width:100%;background:var(--surface);border:1px dashed var(--teal);
+    color:var(--teal-dark);border-radius:var(--radius);padding:14px;font-weight:600;font-size:14px;
+  }
+
+  /* ---------- پروفایل فروشنده ---------- */
+  .profile-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:16px;display:flex;flex-direction:column;gap:10px;margin-top:12px;
+  }
+  .profile-label{font-size:12px;color:var(--text-soft);margin-bottom:-4px;}
+  .profile-card input{padding:11px 14px;border-radius:10px;border:1px solid var(--border);font-size:14px;outline:none;}
+  .profile-card input:focus{border-color:var(--teal);}
+  .profile-preview{
+    display:flex;justify-content:space-between;background:#EAF4F2;border-radius:10px;
+    padding:10px 14px;font-size:13px;color:var(--teal-dark);margin-bottom:4px;
+  }
+
+  /* ---------- مشاوره خریدار ---------- */
+  .advice-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:16px;margin-bottom:14px;
+  }
+  .advice-card h3{margin:0 0 8px;font-size:15px;}
+  .advice-card ul{margin:0;padding-right:18px;font-size:13px;color:var(--text-soft);line-height:1.9;}
+  .advice-form textarea{
+    width:100%;min-height:90px;padding:12px 14px;border-radius:12px;border:1px solid var(--border);
+    font-family:inherit;font-size:14px;resize:vertical;outline:none;
+  }
+  .advice-form textarea:focus{border-color:var(--teal);}
+  .advice-sent{
+    display:flex;flex-direction:column;gap:8px;margin-top:12px;
+  }
+  .advice-sent-item{
+    background:#F1F0EA;border-radius:10px;padding:10px 12px;font-size:13px;color:var(--text-soft);
+  }
+
+  /* ---------- گالری آرزوها ---------- */
+  .gallery-head{text-align:center;padding:18px 4px 10px;}
+  .gallery-head h2{margin:0 0 6px;font-size:22px;}
+  .gallery-head p{margin:0 0 16px;color:var(--text-soft);font-size:13px;}
+  .drawing-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;
+  }
+  .drawing-card{
+    background:#fff;border-radius:16px;padding:8px;box-shadow:0 6px 18px rgba(47,64,60,.08);
+    display:flex;flex-direction:column;gap:6px;
+  }
+  .drawing-card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;}
+  .drawing-name{font-size:12px;text-align:center;color:var(--text-soft);font-weight:600;}
+
+  /* ---------- نوار پایینی ---------- */
+  #tabBar{
+    position:fixed;bottom:0;left:0;right:0;z-index:10;
+    background:var(--surface);border-top:1px solid var(--border);
+    display:flex;max-width:520px;margin:0 auto;
+    padding:6px 10px calc(6px + env(safe-area-inset-bottom));
+  }
+  #tabBar.hidden{display:none;}
+  .tab{
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;
+    padding:8px 4px;border-radius:10px;font-size:11px;color:var(--text-soft);font-weight:600;
+  }
+  .tab-icon{font-size:18px;}
+  .tab.active{color:var(--teal-dark);background:#EAF4F2;}
+
+  /* ---------- پیام کوتاه ---------- */
+  #toast{
+    position:fixed;bottom:78px;left:50%;transform:translateX(-50%) translateY(10px);
+    background:var(--text);color:#fff;padding:10px 20px;border-radius:999px;
+    font-size:13px;opacity:0;transition:opacity .2s ease, transform .2s ease;
+    pointer-events:none;white-space:nowrap;z-index:20;
+  }
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  @media (min-width:480px){
+    .compare-col{flex:0 0 60%;}
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo"><span class="logo-mark"></span>بازار مقایسه</div>
+    <div class="header-actions">
+      <button id="galleryBtn" class="gallery-toggle">🎨 گالری آرزوها</button>
+      <button id="roleBadge" class="hidden"></button>
+    </div>
+  </header>
+  <main id="app"></main>
+  <nav id="tabBar" class="hidden"></nav>
+  <script>
+const DEMO_DATA = {
+  "sellers": [
+    { "id": "s1", "name": "فروشگاه رایان‌تک", "rating": 4.7, "city": "تهران", "phone": "021-88112233" },
+    { "id": "s2", "name": "بازار کالای خانه", "rating": 4.3, "city": "اصفهان", "phone": "031-55223344" },
+    { "id": "s3", "name": "کفش و پوشاک آرمان", "rating": 4.8, "city": "مشهد", "phone": "051-77889900" },
+    { "id": "s4", "name": "کتاب‌سرای مهتاب", "rating": 4.9, "city": "شیراز", "phone": "071-66554433" }
+  ],
+  "products": [
+    { "id": "p1", "name": "هدفون بی‌سیم مدل X200", "category": "لوازم دیجیتال", "price": 1250000, "sellerId": "s1", "rating": 4.6, "color": "#0F766E" },
+    { "id": "p2", "name": "پاوربانک ۲۰۰۰۰ میلی‌آمپر", "category": "لوازم دیجیتال", "price": 890000, "sellerId": "s1", "rating": 4.4, "color": "#0F766E" },
+    { "id": "p3", "name": "ماوس بی‌سیم مینیمال", "category": "لوازم دیجیتال", "price": 430000, "sellerId": "s1", "rating": 4.2, "color": "#0F766E" },
+    { "id": "p4", "name": "قابلمه استیل ۵ لیتری", "category": "لوازم خانه", "price": 980000, "sellerId": "s2", "rating": 4.5, "color": "#B4530A" },
+    { "id": "p5", "name": "سرویس چای‌خوری ۶ نفره", "category": "لوازم خانه", "price": 760000, "sellerId": "s2", "rating": 4.1, "color": "#B4530A" },
+    { "id": "p6", "name": "چراغ رومیزی چوبی", "category": "لوازم خانه", "price": 540000, "sellerId": "s2", "rating": 4.3, "color": "#B4530A" },
+    { "id": "p7", "name": "کفش ورزشی مدل استریت", "category": "پوشاک", "price": 1450000, "sellerId": "s3", "rating": 4.8, "color": "#8B5CF6" },
+    { "id": "p8", "name": "کتانی روزمره سبک", "category": "پوشاک", "price": 1120000, "sellerId": "s3", "rating": 4.5, "color": "#8B5CF6" },
+    { "id": "p9", "name": "کفش رسمی چرم", "category": "پوشاک", "price": 1980000, "sellerId": "s3", "rating": 4.9, "color": "#8B5CF6" },
+    { "id": "p10", "name": "مجموعه رمان‌های کوتاه ایرانی", "category": "کتاب", "price": 320000, "sellerId": "s4", "rating": 4.9, "color": "#B45309" },
+    { "id": "p11", "name": "کتاب آموزش برنامه‌نویسی مقدماتی", "category": "کتاب", "price": 410000, "sellerId": "s4", "rating": 4.6, "color": "#B45309" },
+    { "id": "p12", "name": "دفترچه یادداشت جلد چرمی", "category": "کتاب", "price": 150000, "sellerId": "s4", "rating": 4.4, "color": "#B45309" }
+  ],
+  "orders": [],
+  "drawings": [
+    {
+      "id": "d1",
+      "childName": "بارانا، ۶ ساله",
+      "dataUrl": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><rect width='300' height='300' fill='%23FBF3E4'/><circle cx='150' cy='110' r='55' fill='%23F3B23E'/><g stroke='%23F3B23E' stroke-width='8'><line x1='150' y1='20' x2='150' y2='45'/><line x1='150' y1='175' x2='150' y2='200'/><line x1='60' y1='110' x2='85' y2='110'/><line x1='215' y1='110' x2='240' y2='110'/></g><path d='M40 260 Q150 190 260 260 L260 290 L40 290 Z' fill='%232F8F97'/></svg>"
+    },
+    {
+      "id": "d2",
+      "childName": "آرش، ۸ ساله",
+      "dataUrl": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><rect width='300' height='300' fill='%23EAF6F0'/><circle cx='150' cy='150' r='30' fill='%23E85D75'/><g fill='%23F3B23E'><ellipse cx='150' cy='95' rx='18' ry='34'/><ellipse cx='150' cy='205' rx='18' ry='34'/><ellipse cx='95' cy='150' rx='34' ry='18'/><ellipse cx='205' cy='150' rx='34' ry='18'/></g></svg>"
+    }
+  ]
+};
+
+// ===== حالت کلی برنامه (در حافظه مرورگر، بدون ذخیره‌سازی دائمی) =====
+const state = {
+  sellers: [],
+  products: [],
+  orders: [],
+  drawings: [],
+  adviceRequests: [],
+  role: null,        // 'buyer' | 'seller'
+  sellerId: null,     // فروشنده‌ی فعال، وقتی role === 'seller'
+  sellerPersonName: null,
+  view: 'search',     // buyer: search | compare | myorders | advice   seller: products | orders | profile
+  query: '',
+  category: 'all',
+  compareIds: [],
+  nextOrderId: 1,
+  nextProductId: 13,
+  nextSellerId: 5,
+  showGallery: false,
+  toastTimer: null
+};
+
+const app = document.getElementById('app');
+const roleBadge = document.getElementById('roleBadge');
+const tabBar = document.getElementById('tabBar');
+const galleryBtn = document.getElementById('galleryBtn');
+
+// ===== بارگذاری داده‌ی دمو (مستقیم از حافظه، بدون fetch) =====
+function loadData() {
+  try {
+    const data = DEMO_DATA;
+    state.sellers = data.sellers;
+    state.products = data.products;
+    state.orders = data.orders;
+    state.drawings = data.drawings || [];
+    galleryBtn.onclick = () => {
+      state.showGallery = !state.showGallery;
+      render();
+    };
+    render();
+  } catch (err) {
+    app.innerHTML = `<div class="empty">
+      <p>مشکلی در بارگذاری اطلاعات دمو پیش آمد.</p>
+      <p class="empty-sub">فایل data.json را کنار همین صفحه قرار بده و دوباره باز کن.</p>
+    </div>`;
+  }
+}
+
+// ===== کمکی‌ها =====
+function money(n) {
+  return n.toLocaleString('fa-IR') + ' تومان';
+}
+function sellerName(id) {
+  const s = state.sellers.find(x => x.id === id);
+  return s ? s.name : 'فروشنده نامشخص';
+}
+function productById(id) {
+  return state.products.find(p => p.id === id);
+}
+function showToast(msg) {
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(state.toastTimer);
+  state.toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
+}
+function categories() {
+  const set = new Set(state.products.map(p => p.category));
+  return Array.from(set);
+}
+
+// ===== قاب اصلی (گالری در اولویت است، سپس اپ یا صفحه‌ی ورود) =====
+function render() {
+  document.body.classList.toggle('gallery-mode', state.showGallery);
+  galleryBtn.textContent = state.showGallery ? '⬅ بازگشت' : '🎨 گالری آرزوها';
+  galleryBtn.classList.toggle('active', state.showGallery);
+  if (state.showGallery) {
+    tabBar.classList.add('hidden');
+    roleBadge.classList.add('hidden');
+    renderGallery();
+    return;
+  }
+  if (!state.role) { renderRoleGate(); return; }
+  renderApp();
+}
+
+// ===== گالری آرزوهای نقاشی‌شده =====
+function renderGallery() {
+  app.innerHTML = `
+    <div class="gallery-head">
+      <h2>گالری آرزوهای کوچک</h2>
+      <p>نقاشی‌هایی که بچه‌ها برای بسته‌ی سفارششان کشیده‌اند و برایمان فرستاده‌اند.</p>
+      <button class="btn-solid" id="addDrawingBtn">+ افزودن نقاشی</button>
+    </div>
+    <div id="drawingForm"></div>
+    <div class="drawing-grid">
+      ${state.drawings.length ? [...state.drawings].reverse().map(drawingCard).join('') : `
+        <div class="empty">
+          <p>هنوز نقاشی‌ای اضافه نشده.</p>
+          <p class="empty-sub">اولین نقاشی را از دکمه‌ی بالا اضافه کن.</p>
+        </div>`}
+    </div>`;
+  document.getElementById('addDrawingBtn').onclick = renderDrawingForm;
+}
+
+function drawingCard(d) {
+  return `
+    <div class="drawing-card">
+      <img src="${d.dataUrl}" alt="نقاشی ${d.childName || ''}">
+      <div class="drawing-name">${d.childName || 'دوست کوچک ما'}</div>
+    </div>`;
+}
+
+function renderDrawingForm() {
+  const holder = document.getElementById('drawingForm');
+  holder.innerHTML = `
+    <div class="form-card">
+      <input id="childName" type="text" placeholder="اسم کودک (اختیاری)">
+      <input id="drawingFile" type="file" accept="image/*">
+      <div class="form-actions">
+        <button class="btn-solid" id="saveDrawing">افزودن به گالری</button>
+        <button class="btn-ghost" id="cancelDrawing">انصراف</button>
+      </div>
+    </div>`;
+  document.getElementById('cancelDrawing').onclick = () => holder.innerHTML = '';
+  document.getElementById('saveDrawing').onclick = () => {
+    const fileInput = document.getElementById('drawingFile');
+    const name = document.getElementById('childName').value.trim();
+    const file = fileInput.files[0];
+    if (!file) { showToast('یک عکس از نقاشی انتخاب کن'); return; }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      state.drawings.push({ id: 'd' + Date.now(), childName: name, dataUrl: e.target.result });
+      showToast('نقاشی به گالری اضافه شد ✓ 🎨');
+      renderGallery();
+    };
+    reader.readAsDataURL(file);
+  };
+}
+
+// ===== انتخاب نقش =====
+function renderRoleGate() {
+  tabBar.classList.add('hidden');
+  roleBadge.classList.add('hidden');
+  app.innerHTML = `
+    <div class="gate">
+      <h1>بازار مقایسه</h1>
+      <p>پیدا کن، مقایسه کن، با اطمینان سفارش بده.</p>
+      <div class="gate-cards">
+        <button class="gate-card" id="pickBuyer">
+          <span class="gate-emoji">🛍️</span>
+          <span class="gate-title">من خریدارم</span>
+          <span class="gate-sub">جست‌وجو، مقایسه، ثبت سفارش</span>
+        </button>
+        <button class="gate-card" id="pickSeller">
+          <span class="gate-emoji">🏬</span>
+          <span class="gate-title">من فروشنده‌ام</span>
+          <span class="gate-sub">مدیریت کالا و سفارش‌ها</span>
+        </button>
+      </div>
+    </div>`;
+  document.getElementById('pickBuyer').onclick = () => {
+    state.role = 'buyer';
+    state.view = 'search';
+    renderApp();
+  };
+  document.getElementById('pickSeller').onclick = () => renderSellerPicker();
+}
+
+function renderSellerPicker() {
+  app.innerHTML = `
+    <div class="gate">
+      <h1>ورود فروشنده</h1>
+      <p>فروشگاه خودت را انتخاب کن یا یک فروشگاه جدید بساز.</p>
+      <div class="tip-box">
+        <div class="tip-title">قبل از شروع، این نکته‌ها را بخوان</div>
+        <ul>
+          <li>مشخصات فروشگاهت (شهر و شماره تماس) را در تب «پروفایل» کامل کن تا خریدارها بهت اعتماد کنند.</li>
+          <li>قیمت کالاهات را به‌روز نگه دار تا در مقایسه درست دیده شوند.</li>
+          <li>به سفارش‌های دریافتی سریع رسیدگی کن؛ وضعیت هر سفارش را در تب «سفارش‌های دریافتی» تغییر بده.</li>
+        </ul>
+      </div>
+      <div class="profile-label">اسم شما (فروشنده)</div>
+      <input id="sellerLoginName" type="text" placeholder="مثلاً علی محمدی" value="${state.sellerPersonName || ''}" style="margin-bottom:14px;">
+      <div class="seller-pick-list">
+        ${state.sellers.map(s => `
+          <button class="seller-pick" data-id="${s.id}">
+            <span>${s.name}</span>
+            <span class="rating">★ ${s.rating}</span>
+          </button>`).join('')}
+      </div>
+      <div class="seller-divider">یا</div>
+      <button class="new-seller-btn" id="newSellerBtn">+ ثبت فروشگاه جدید</button>
+      <div id="newSellerForm"></div>
+    </div>`;
+  app.querySelectorAll('.seller-pick').forEach(btn => {
+    btn.onclick = () => {
+      const name = document.getElementById('sellerLoginName').value.trim();
+      if (!name) { showToast('اسمت را بنویس تا وارد شوی'); return; }
+      state.sellerPersonName = name;
+      state.role = 'seller';
+      state.sellerId = btn.dataset.id;
+      state.view = 'products';
+      render();
+    };
+  });
+  document.getElementById('newSellerBtn').onclick = renderNewSellerForm;
+}
+
+function renderNewSellerForm() {
+  const holder = document.getElementById('newSellerForm');
+  holder.innerHTML = `
+    <div class="form-card">
+      <input id="newOwnerName" type="text" placeholder="اسم شما (فروشنده)">
+      <input id="newSellerCity" type="text" placeholder="شهر">
+      <input id="newSellerPhone" type="text" placeholder="شماره تماس">
+      <div class="form-actions">
+        <button class="btn-solid" id="saveNewSeller">ساخت فروشگاه و ورود</button>
+        <button class="btn-ghost" id="cancelNewSeller">انصراف</button>
+      </div>
+    </div>`;
+  document.getElementById('cancelNewSeller').onclick = () => holder.innerHTML = '';
+  document.getElementById('saveNewSeller').onclick = () => {
+    const ownerName = document.getElementById('newOwnerName').value.trim();
+    const city = document.getElementById('newSellerCity').value.trim();
+    const phone = document.getElementById('newSellerPhone').value.trim();
+    if (!ownerName) { showToast('اسم خودت را وارد کن'); return; }
+    const id = 's' + state.nextSellerId++;
+    state.sellers.push({ id, name: ownerName, city, phone, ownerName, rating: 5.0 });
+    state.sellerPersonName = ownerName;
+    state.role = 'seller';
+    state.sellerId = id;
+    state.view = 'products';
+    showToast('فروشگاهت ساخته شد ✓');
+    render();
+  };
+}
+
+function exitRole() {
+  state.role = null;
+  state.sellerId = null;
+  state.sellerPersonName = null;
+  state.compareIds = [];
+  render();
+}
+
+// ===== قاب اصلی برنامه =====
+function renderApp() {
+  roleBadge.classList.remove('hidden');
+  tabBar.classList.remove('hidden');
+  if (state.role === 'buyer') {
+    roleBadge.textContent = 'خریدار';
+    roleBadge.onclick = exitRole;
+    renderBuyerTabs();
+    renderBuyerView();
+  } else {
+    const storeLabel = sellerName(state.sellerId);
+    roleBadge.textContent = (state.sellerPersonName && state.sellerPersonName !== storeLabel)
+      ? state.sellerPersonName + ' · ' + storeLabel
+      : storeLabel;
+    roleBadge.onclick = exitRole;
+    renderSellerTabs();
+    renderSellerView();
+  }
+}
+
+// ===== تب‌های خریدار =====
+function renderBuyerTabs() {
+  tabBar.innerHTML = `
+    <button class="tab ${state.view === 'search' ? 'active' : ''}" data-v="search">
+      <span class="tab-icon">🔎</span><span>جست‌وجو</span>
+    </button>
+    <button class="tab ${state.view === 'compare' ? 'active' : ''}" data-v="compare">
+      <span class="tab-icon">⚖️</span><span>مقایسه${state.compareIds.length ? ` (${state.compareIds.length})` : ''}</span>
+    </button>
+    <button class="tab ${state.view === 'myorders' ? 'active' : ''}" data-v="myorders">
+      <span class="tab-icon">📦</span><span>سفارش‌های من</span>
+    </button>
+    <button class="tab ${state.view === 'advice' ? 'active' : ''}" data-v="advice">
+      <span class="tab-icon">💬</span><span>مشاوره</span>
+    </button>`;
+  tabBar.querySelectorAll('.tab').forEach(b => b.onclick = () => { state.view = b.dataset.v; renderApp(); });
+}
+
+function renderBuyerView() {
+  if (state.view === 'search') return renderSearch();
+  if (state.view === 'compare') return renderCompare();
+  if (state.view === 'myorders') return renderMyOrders();
+  if (state.view === 'advice') return renderAdvicePanel();
+}
+
+// ===== پنل مشاوره خریدار =====
+function renderAdvicePanel() {
+  app.innerHTML = `
+    <div class="advice-card">
+      <h3>قبل از خرید بدون این نکته‌ها</h3>
+      <ul>
+        <li>قیمت و امتیاز چند فروشنده را در تب «مقایسه» کنار هم ببین.</li>
+        <li>برای کالاهای دیجیتال، به تعداد امتیازها هم دقت کن، نه فقط عدد امتیاز.</li>
+        <li>اگر بین چند گزینه مانده‌ای، سؤالت را برای مشاور بفرست تا کمکت کند.</li>
+      </ul>
+    </div>
+    <div class="advice-card advice-form">
+      <h3>سؤالت را از مشاور بپرس</h3>
+      <textarea id="adviceText" placeholder="مثلاً: کدام کفش برای پیاده‌روی روزانه بهتر است؟"></textarea>
+      <div class="form-actions" style="margin-top:10px;">
+        <button class="btn-solid" id="sendAdvice">ارسال سؤال</button>
+      </div>
+      <div class="advice-sent" id="adviceSent"></div>
+    </div>`;
+  renderSentAdvice();
+  document.getElementById('sendAdvice').onclick = () => {
+    const text = document.getElementById('adviceText').value.trim();
+    if (!text) { showToast('سؤالت را بنویس'); return; }
+    state.adviceRequests.push({ id: 'a' + Date.now(), text, createdAt: Date.now() });
+    showToast('سؤالت برای مشاور ارسال شد ✓');
+    renderAdvicePanel();
+  };
+}
+
+function renderSentAdvice() {
+  const holder = document.getElementById('adviceSent');
+  if (!state.adviceRequests.length) return;
+  holder.innerHTML = [...state.adviceRequests].reverse().map(a => `
+    <div class="advice-sent-item">«${a.text}» — در انتظار پاسخ مشاور</div>
+  `).join('');
+}
+
+// ===== جست‌وجو و لیست محصولات =====
+function renderSearch() {
+  const cats = categories();
+  const filtered = state.products.filter(p => {
+    const okCat = state.category === 'all' || p.category === state.category;
+    const okQuery = p.name.includes(state.query.trim());
+    return okCat && okQuery;
+  });
+
+  app.innerHTML = `
+    <div class="search-bar">
+      <input id="q" type="text" placeholder="اسم کالا را بنویس..." value="${state.query}">
+    </div>
+    <div class="chip-row" id="chipRow">
+      <button class="chip ${state.category === 'all' ? 'active' : ''}" data-c="all">همه</button>
+      ${cats.map(c => `<button class="chip ${state.category === c ? 'active' : ''}" data-c="${c}">${c}</button>`).join('')}
+    </div>
+    <div class="product-grid">
+      ${filtered.length ? filtered.map(productCard).join('') : `
+        <div class="empty">
+          <p>هیچ کالایی پیدا نشد.</p>
+          <p class="empty-sub">کلمه‌ی دیگری را امتحان کن یا فیلتر دسته را عوض کن.</p>
+        </div>`}
+    </div>`;
+
+  document.getElementById('q').oninput = (e) => { state.query = e.target.value; renderSearch(); };
+  app.querySelectorAll('.chip').forEach(c => c.onclick = () => { state.category = c.dataset.c; renderSearch(); });
+  bindProductCardActions();
+}
+
+function productCard(p) {
+  const inCompare = state.compareIds.includes(p.id);
+  return `
+    <div class="card">
+      ${p.photo
+        ? `<img class="card-photo" src="${p.photo}" alt="${p.name}">`
+        : `<div class="card-swatch" style="background:${p.color}"></div>`}
+      <div class="card-body">
+        <div class="card-cat">${p.category}</div>
+        <div class="card-name">${p.name}</div>
+        <div class="card-seller">${sellerName(p.sellerId)} · ★ ${p.rating}</div>
+        <div class="card-price">${money(p.price)}</div>
+        <div class="card-actions">
+          <button class="btn-ghost cmp-btn ${inCompare ? 'active' : ''}" data-id="${p.id}">
+            ${inCompare ? 'در مقایسه' : 'افزودن به مقایسه'}
+          </button>
+          <button class="btn-solid order-btn" data-id="${p.id}">سفارش</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function bindProductCardActions() {
+  app.querySelectorAll('.cmp-btn').forEach(b => b.onclick = () => toggleCompare(b.dataset.id));
+  app.querySelectorAll('.order-btn').forEach(b => b.onclick = () => placeOrder(b.dataset.id));
+}
+
+function toggleCompare(id) {
+  const idx = state.compareIds.indexOf(id);
+  if (idx >= 0) {
+    state.compareIds.splice(idx, 1);
+    renderApp();
+    return;
+  }
+  if (state.compareIds.length >= 3) {
+    showToast('حداکثر ۳ کالا را می‌توانی مقایسه کنی');
+    return;
+  }
+  state.compareIds.push(id);
+  renderApp();
+}
+
+function placeOrder(id) {
+  state.orders.push({
+    id: 'o' + state.nextOrderId++,
+    productId: id,
+    qty: 1,
+    status: 'در حال بررسی',
+    createdAt: Date.now()
+  });
+  showToast('سفارش ثبت شد ✓');
+  if (state.view !== 'search') renderApp();
+}
+
+// ===== مقایسه =====
+function renderCompare() {
+  if (!state.compareIds.length) {
+    app.innerHTML = `<div class="empty">
+      <p>هنوز کالایی برای مقایسه انتخاب نکردی.</p>
+      <p class="empty-sub">از تب جست‌وجو، روی «افزودن به مقایسه» بزن.</p>
+    </div>`;
+    return;
+  }
+  const items = state.compareIds.map(productById).filter(Boolean);
+  app.innerHTML = `
+    <div class="compare-wrap">
+      ${items.map(p => `
+        <div class="compare-col">
+          ${p.photo
+            ? `<img class="card-photo" src="${p.photo}" alt="${p.name}">`
+            : `<div class="card-swatch" style="background:${p.color}"></div>`}
+          <div class="compare-name">${p.name}</div>
+          <button class="btn-ghost small" data-id="${p.id}" id="rm-${p.id}">حذف</button>
+          <div class="compare-row"><span>قیمت</span><b>${money(p.price)}</b></div>
+          <div class="compare-row"><span>فروشنده</span><b>${sellerName(p.sellerId)}</b></div>
+          <div class="compare-row"><span>امتیاز</span><b>★ ${p.rating}</b></div>
+          <div class="compare-row"><span>دسته</span><b>${p.category}</b></div>
+          <button class="btn-solid full order-btn" data-id="${p.id}">سفارش این کالا</button>
+        </div>`).join('')}
+    </div>`;
+  items.forEach(p => {
+    document.getElementById('rm-' + p.id).onclick = () => toggleCompare(p.id);
+  });
+  bindProductCardActions();
+}
+
+// ===== سفارش‌های من =====
+const STATUS_STEP = { 'در حال بررسی': 0, 'تایید شده': 1, 'ارسال شده': 2 };
+function renderMyOrders() {
+  if (!state.orders.length) {
+    app.innerHTML = `<div class="empty">
+      <p>هنوز سفارشی ثبت نکردی.</p>
+      <p class="empty-sub">از تب جست‌وجو یک کالا سفارش بده.</p>
+    </div>`;
+    return;
+  }
+  const rows = [...state.orders].reverse().map(o => {
+    const p = productById(o.productId);
+    if (!p) return '';
+    return `
+      <div class="order-item">
+        <div class="order-swatch" style="background:${p.color}"></div>
+        <div class="order-info">
+          <div class="order-name">${p.name}</div>
+          <div class="order-sub">${sellerName(p.sellerId)} · ${money(p.price)}</div>
+          <div class="status-track">
+            ${['در حال بررسی', 'تایید شده', 'ارسال شده'].map((s, i) => `
+              <span class="status-dot ${i <= STATUS_STEP[o.status] ? 'done' : ''}"></span>
+            `).join('')}
+          </div>
+          <div class="order-status">${o.status}</div>
+        </div>
+        ${o.status === 'در حال بررسی' ? `<button class="btn-ghost small cancel-btn" data-id="${o.id}">لغو</button>` : ''}
+      </div>`;
+  }).join('');
+  app.innerHTML = `<div class="order-list">${rows}</div>`;
+  app.querySelectorAll('.cancel-btn').forEach(b => b.onclick = () => {
+    state.orders = state.orders.filter(o => o.id !== b.dataset.id);
+    renderMyOrders();
+  });
+}
+
+// ===== تب‌های فروشنده =====
+function renderSellerTabs() {
+  const pendingCount = state.orders.filter(o => {
+    const p = productById(o.productId);
+    return p && p.sellerId === state.sellerId && o.status !== 'ارسال شده';
+  }).length;
+  tabBar.innerHTML = `
+    <button class="tab ${state.view === 'products' ? 'active' : ''}" data-v="products">
+      <span class="tab-icon">🗂️</span><span>محصولات من</span>
+    </button>
+    <button class="tab ${state.view === 'orders' ? 'active' : ''}" data-v="orders">
+      <span class="tab-icon">📬</span><span>سفارش‌های دریافتی${pendingCount ? ` (${pendingCount})` : ''}</span>
+    </button>
+    <button class="tab ${state.view === 'profile' ? 'active' : ''}" data-v="profile">
+      <span class="tab-icon">🏬</span><span>پروفایل</span>
+    </button>`;
+  tabBar.querySelectorAll('.tab').forEach(b => b.onclick = () => { state.view = b.dataset.v; renderApp(); });
+}
+
+function renderSellerView() {
+  if (state.view === 'products') return renderSellerProducts();
+  if (state.view === 'orders') return renderSellerOrders();
+  if (state.view === 'profile') return renderSellerProfile();
+}
+
+// ===== پروفایل فروشنده =====
+function renderSellerProfile() {
+  const s = state.sellers.find(x => x.id === state.sellerId);
+  app.innerHTML = `
+    <div class="profile-preview">
+      <span>★ امتیاز فروشگاه</span><span>${s.rating}</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-label">اسم فروشنده (شما)</div>
+      <input id="pfOwner" type="text" value="${state.sellerPersonName || s.ownerName || s.name || ''}" placeholder="مثلاً علی محمدی">
+      <div class="profile-label">شهر</div>
+      <input id="pfCity" type="text" value="${s.city || ''}" placeholder="مثلاً تهران">
+      <div class="profile-label">شماره تماس</div>
+      <input id="pfPhone" type="text" value="${s.phone || ''}" placeholder="مثلاً 0912xxxxxxx">
+      <button class="btn-solid" id="pfSave">ذخیره مشخصات</button>
+    </div>`;
+  document.getElementById('pfSave').onclick = () => {
+    const ownerName = document.getElementById('pfOwner').value.trim();
+    if (!ownerName) { showToast('اسمت را خالی نگذار'); return; }
+    s.ownerName = ownerName;
+    s.name = ownerName;
+    state.sellerPersonName = ownerName;
+    s.city = document.getElementById('pfCity').value.trim();
+    s.phone = document.getElementById('pfPhone').value.trim();
+    showToast('مشخصات فروشگاه ذخیره شد ✓');
+    renderApp();
+  };
+}
+
+// ===== محصولات فروشنده =====
+function renderSellerProducts() {
+  const mine = state.products.filter(p => p.sellerId === state.sellerId);
+  app.innerHTML = `
+    <div class="seller-toolbar">
+      <button class="btn-solid" id="addProductBtn">+ افزودن کالای جدید</button>
+    </div>
+    <div id="addForm"></div>
+    <div class="product-grid">
+      ${mine.length ? mine.map(p => sellerProductCard(p)).join('') : `
+        <div class="empty">
+          <p>هنوز کالایی ثبت نکرده‌ای.</p>
+          <p class="empty-sub">با دکمه بالا اولین کالایت را اضافه کن.</p>
+        </div>`}
+    </div>`;
+  document.getElementById('addProductBtn').onclick = renderAddProductForm;
+  bindSellerProductActions();
+}
+
+function sellerProductCard(p) {
+  return `
+    <div class="card" id="prod-${p.id}">
+      ${p.photo
+        ? `<img class="card-photo" src="${p.photo}" alt="${p.name}">`
+        : `<div class="card-swatch" style="background:${p.color}"></div>`}
+      <div class="card-body">
+        <div class="card-cat">${p.category}</div>
+        <div class="card-name">${p.name}</div>
+        <div class="card-price">${money(p.price)}</div>
+        <div class="card-actions">
+          <label class="btn-ghost photo-btn" for="photoInput-${p.id}">📷 ${p.photo ? 'تغییر عکس' : 'گرفتن عکس'}</label>
+          <input type="file" accept="image/*" capture="environment" id="photoInput-${p.id}" class="hidden-file" data-id="${p.id}">
+          <button class="btn-ghost edit-btn" data-id="${p.id}">ویرایش نام و قیمت</button>
+          <button class="btn-ghost danger del-btn" data-id="${p.id}">حذف</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderAddProductForm() {
+  const holder = document.getElementById('addForm');
+  holder.innerHTML = `
+    <div class="form-card">
+      <input id="newName" type="text" placeholder="نام کالا">
+      <input id="newCategory" type="text" placeholder="دسته‌بندی (مثلاً پوشاک)">
+      <input id="newPrice" type="number" placeholder="قیمت به تومان">
+      <div class="profile-label">عکس کالا (اختیاری)</div>
+      <input id="newPhoto" type="file" accept="image/*" capture="environment">
+      <div class="form-actions">
+        <button class="btn-solid" id="saveNewProduct">ذخیره</button>
+        <button class="btn-ghost" id="cancelNewProduct">انصراف</button>
+      </div>
+    </div>`;
+  document.getElementById('cancelNewProduct').onclick = () => holder.innerHTML = '';
+  document.getElementById('saveNewProduct').onclick = () => {
+    const name = document.getElementById('newName').value.trim();
+    const category = document.getElementById('newCategory').value.trim();
+    const price = parseInt(document.getElementById('newPrice').value, 10);
+    const file = document.getElementById('newPhoto').files[0];
+    if (!name || !category || !price || price <= 0) {
+      showToast('لطفاً همه‌ی فیلدها را درست پر کن');
+      return;
+    }
+    const newProduct = {
+      id: 'p' + state.nextProductId++,
+      name, category, price,
+      sellerId: state.sellerId,
+      rating: 4.5,
+      color: '#0F766E'
+    };
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        newProduct.photo = e.target.result;
+        state.products.push(newProduct);
+        showToast('کالا اضافه شد ✓');
+        renderSellerProducts();
+      };
+      reader.readAsDataURL(file);
+    } else {
+      state.products.push(newProduct);
+      showToast('کالا اضافه شد ✓');
+      renderSellerProducts();
+    }
+  };
+}
+
+function bindSellerProductActions() {
+  app.querySelectorAll('.edit-btn').forEach(b => b.onclick = () => editPrice(b.dataset.id));
+  app.querySelectorAll('.del-btn').forEach(b => b.onclick = () => deleteProduct(b.dataset.id));
+  app.querySelectorAll('.hidden-file').forEach(input => input.onchange = () => changePhoto(input));
+}
+
+function changePhoto(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const p = productById(input.dataset.id);
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    p.photo = e.target.result;
+    showToast('عکس کالا به‌روزرسانی شد ✓');
+    renderSellerProducts();
+  };
+  reader.readAsDataURL(file);
+}
+
+function editPrice(id) {
+  const p = productById(id);
+  const card = document.getElementById('prod-' + id);
+  card.querySelector('.card-actions').innerHTML = `
+    <input type="text" id="editName-${id}" value="${p.name}" class="inline-input" placeholder="اسم کالا">
+    <input type="number" id="editPrice-${id}" value="${p.price}" class="inline-input" placeholder="قیمت">
+    <button class="btn-solid small" id="saveEdit-${id}">ذخیره</button>`;
+  document.getElementById('saveEdit-' + id).onclick = () => {
+    const name = document.getElementById('editName-' + id).value.trim();
+    const val = parseInt(document.getElementById('editPrice-' + id).value, 10);
+    if (!name) { showToast('اسم کالا را خالی نگذار'); return; }
+    if (!val || val <= 0) { showToast('قیمت درست وارد کن'); return; }
+    p.name = name;
+    p.price = val;
+    showToast('کالا به‌روزرسانی شد ✓');
+    renderSellerProducts();
+  };
+}
+
+function deleteProduct(id) {
+  state.products = state.products.filter(p => p.id !== id);
+  showToast('کالا حذف شد');
+  renderSellerProducts();
+}
+
+// ===== سفارش‌های دریافتی فروشنده =====
+const NEXT_STATUS = { 'در حال بررسی': 'تایید شده', 'تایید شده': 'ارسال شده' };
+const NEXT_LABEL = { 'در حال بررسی': 'تایید سفارش', 'تایید شده': 'ثبت ارسال' };
+
+function renderSellerOrders() {
+  const mine = state.orders.filter(o => {
+    const p = productById(o.productId);
+    return p && p.sellerId === state.sellerId;
+  });
+  if (!mine.length) {
+    app.innerHTML = `<div class="empty">
+      <p>هنوز سفارشی برای کالاهای تو ثبت نشده.</p>
+      <p class="empty-sub">وقتی خریداری سفارش بدهد، همین‌جا نمایش داده می‌شود.</p>
+    </div>`;
+    return;
+  }
+  const rows = [...mine].reverse().map(o => {
+    const p = productById(o.productId);
+    const next = NEXT_STATUS[o.status];
+    return `
+      <div class="order-item">
+        <div class="order-swatch" style="background:${p.color}"></div>
+        <div class="order-info">
+          <div class="order-name">${p.name}</div>
+          <div class="order-sub">${money(p.price)} · تعداد ${o.qty}</div>
+          <div class="order-status">${o.status}</div>
+        </div>
+        ${next ? `<button class="btn-solid small advance-btn" data-id="${o.id}">${NEXT_LABEL[o.status]}</button>` : `<span class="done-label">تکمیل شده</span>`}
+      </div>`;
+  }).join('');
+  app.innerHTML = `<div class="order-list">${rows}</div>`;
+  app.querySelectorAll('.advance-btn').forEach(b => b.onclick = () => {
+    const order = state.orders.find(o => o.id === b.dataset.id);
+    order.status = NEXT_STATUS[order.status];
+    renderSellerOrders();
+  });
+}
+
+// ===== شروع =====
+loadData();
+
+</script>
+</body>
+</html>
